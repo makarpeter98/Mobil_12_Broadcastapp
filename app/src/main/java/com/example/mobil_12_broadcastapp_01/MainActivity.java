@@ -18,16 +18,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        filter.addAction(Intent.ACTION_POWER_CONNECTED);
 
+        this.registerReceiver(mCustomReceiver, filter);
     }
 
     @Override
     protected void onDestroy() {
-
+        this.unregisterReceiver(mCustomReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mCustomReceiver);
         super.onDestroy();
     }
 
     public void sendCustomBroadcast(View view) {
-
+        Intent customBroadcastIntent = new Intent(CUSTOM_BROADCAST_ACTION);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent);
     }
 }
