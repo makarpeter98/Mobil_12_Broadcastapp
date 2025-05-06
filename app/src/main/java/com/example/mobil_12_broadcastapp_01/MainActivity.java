@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
+    //Teszt
     //static final String CUSTOM_BROADCAST_ACTION = BuildConfig.APPLICATION_ID + "CUSTOM_BROADCAST_INTENT";
     static final String CUSTOM_BROADCAST_ACTION = "hu.unideb.mobil_123456789" + "CUSTOM_BROADCAST_INTENT";
     private CustomReceiver mCustomReceiver = new CustomReceiver();
